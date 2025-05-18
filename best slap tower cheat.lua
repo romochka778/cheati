@@ -239,11 +239,11 @@ flyingTool.Activated:Connect(onToolActivated)
 flyingTool.Deactivated:Connect(onToolDeactivated)
 end)
 
-Section:NewTextBox("TextboxText", "TextboxInfo", function(j)
+Section:NewTextBox("JumpHeight", "TextboxInfo", function(j)
     game.Players.LocalPlayer.Character.Humanoid.JumpHeight = j
 end)
 
-Section:NewTextBox("TextboxText", "TextboxInfo", function(s)
+Section:NewTextBox("Speed", "TextboxInfo", function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 

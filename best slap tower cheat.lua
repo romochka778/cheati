@@ -57,6 +57,47 @@ end)
 
 local Section = Tab:NewSection("other")
 
+
+
+Section:NewToggle("troll", "ToggleInfo", function(state)
+    if state then
+         a = 0
+    while wait(0.2) do
+      wait(0.1)
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(33.4529037, 165.803314, 59.7354202, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+      wait(0.2)
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(33.4529037, 165.803314, 46.7354202, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+      wait(0.2)
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(33.4529037, 165.803314, 33.7354202, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+      wait(0.2)
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(38.4866753, 167.326248, 86.7648621, 0, 0, -1, 1, 0, 0, 0, -1, 0)
+      wait(0.2)
+      if a == 1 then
+        break
+      end
+    end
+    else
+        a += 1
+    end
+end)
+
+
+
+local Section = Tab:NewSection("player")
+
+Section:NewButton("tp tool", "ButtonInfo", function()
+ mouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "TP TOOL"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+end)
+
 Section:NewButton("flytool", "ButtonInfo", function()
   -- ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ
 local flightPower = 50 -- Мощность полета
@@ -198,39 +239,11 @@ flyingTool.Activated:Connect(onToolActivated)
 flyingTool.Deactivated:Connect(onToolDeactivated)
 end)
 
-Section:NewToggle("troll", "ToggleInfo", function(state)
-    if state then
-         a = 0
-    while wait(0.2) do
-      wait(0.1)
-      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(33.4529037, 165.803314, 59.7354202, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-      wait(0.2)
-      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(33.4529037, 165.803314, 46.7354202, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-      wait(0.2)
-      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(33.4529037, 165.803314, 33.7354202, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-      wait(0.2)
-      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(38.4866753, 167.326248, 86.7648621, 0, 0, -1, 1, 0, 0, 0, -1, 0)
-      wait(0.2)
-      if a == 1 then
-        break
-      end
-    end
-    else
-        a += 1
-    end
+Section:NewTextBox("TextboxText", "TextboxInfo", function(j)
+    game.Players.LocalPlayer.Character.Humanoid.JumpHeight = j
 end)
 
-Section:NewButton("tp tool", "ButtonInfo", function()
- mouse = game.Players.LocalPlayer:GetMouse()
-tool = Instance.new("Tool")
-tool.RequiresHandle = false
-tool.Name = "TP TOOL"
-tool.Activated:connect(function()
-local pos = mouse.Hit+Vector3.new(0,2.5,0)
-pos = CFrame.new(pos.X,pos.Y,pos.Z)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+Section:NewTextBox("TextboxText", "TextboxInfo", function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
-tool.Parent = game.Players.LocalPlayer.Backpack
-end)
-
 
